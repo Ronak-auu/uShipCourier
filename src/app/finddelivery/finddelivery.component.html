@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div id="body1">
+    <div style="display: flex;width: 100%;">
+    <div style="display: inline;">
+        <form id="request" (ngSubmit)="finddelivery(finddeliveryForm.value)" #finddeliveryForm = "ngForm">
+            <div class="cont">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Origin</label><br>
+                        <input type="text" id="Origin" name="Pickup_Address" placeholder="Pickup area City" ngModel/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Destination</label><br>
+                        <input  type="text" id="Destination" name="Delivery_Address" placeholder="Delivery area City" ngModel/>
+                    </div>
+                </div>
+            </div>
+            <div class="button1"><input type="submit" value="Find Delivery" class="button"/></div>	
+        </form>
+    </div>
+    <div style="padding-top: 1%;padding-left: 2%;">
+    <table>
+        <tr *ngIf="th">
+                <th class="">item</th>
+                <th class="">Pickup&nbsp;Address</th>
+                <th class="">Delivery&nbsp;Address</th>
+                <th class="">Delivery&nbsp;Duration</th>
+                <th class="">Weight</th>
+                <th class="">Length</th>
+                <th class="">Height</th>
+                <th class="">Width</th>
+                <th class="">Price</th>
+                <th class="">Interested</th>
+        </tr>
+        <tr *ngFor="let i of result.result">
+            <td>{{i.item}}</td>
+            <td>{{i.Pickup_Address}}</td>
+            <td>{{i.Delivery_Address}}</td>
+            <td>{{i.Delivery_Duration}}</td>
+            <td>{{i.Weight}}</td>
+            <td>{{i.Length}}</td>
+            <td>{{i.Height}}</td>
+            <td>{{i.Width}}</td>
+            <td>{{i.Price}}</td>
+<!--             <td>{{i.Parcel_id}}</td> -->
+            <td><button class="button2" (click)="confirm(i)">yes</button></td>
+        </tr>
+    </table>
+</div>
+</div>
+</div>

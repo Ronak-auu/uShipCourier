@@ -1,0 +1,43 @@
+#body1 {
+    height: 100vh;
+    max-width: 100vw;
+    background-image: url("../../assets/del.png");
+     background-repeat: no-repeat;
+      background-size: 100% 100%;
+}
+input {
+    opacity: 0.8;	
+      width: 60%;
+      padding: 8px 12px;
+     margin: 8px 0;
+     display: inline-block;
+     order: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+}
+.cont{
+    padding-left : 10%;
+    padding-top: 10%;
+}
+.row{
+    margin-top: 1%;
+}
+.button1{
+    margin-left: 40% ;
+    margin-top: 4%;
+}
+.button {
+    background-color: rgb(70,180,80);
+      color: white;
+      border-radius: 6%;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+}
+.button:hover{
+    background-color: darkgreen; 
+}

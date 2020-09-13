@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<div id="body1" style="width: 100%;">
+    <button (click)="customer()" class="button2" style="margin-left: 5%;margin-top: 2%;">you as a Customer</button>
+    <button (click)="transformer()"class="button2" style="margin-left: 5%;">you as a Transformer</button>
+    <div style="display: flex;" *ngIf = "cus">
+    <div style="padding-top: 1%;padding-left: 5%;" >
+    <p style="color: blue;font-size: 22px;">you as a customer</p>
+    <table align="center" style="width: 100%;">
+        <tr>
+                <th style="width: 100px;">Transformer&nbsp;Id</th>
+                <th>item</th>
+                <th>Pickup&nbsp;Address</th>
+                <th>Delivery&nbsp;Address</th>
+                <th>Delivery&nbsp;Duration</th>
+                <th>Weight</th>
+                <th>Length</th>
+                <th>Height</th>
+                <th>Width</th>
+                <th>Price</th>
+                <th>Change</th>
+                <th>Remove</th>
+        </tr>
+        <tr *ngFor="let i of result.result">
+            <td  *ngIf="i.Customer_id==email">{{i.Transformer_id}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.item}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Pickup_Address}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Delivery_Address}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Delivery_Duration}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Weight}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Length}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Height}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Width}}</td>
+            <td  *ngIf="i.Customer_id==email">{{i.Price}}</td>
+            <td  *ngIf="i.Customer_id==email"><button class="button" (click)="changecus(i)">Change</button></td>
+            <td *ngIf = "i.Customer_id==email && i.Transformer_id==''"><button class="button" (click)="Removecus(i)">Remove</button></td>
+<!--             <td>{{i.Parcel_id}}</td> -->
+<!--             <td><button class="button2" (click)="confirm(i)">yes</button></td> -->
+        </tr>
+    </table>
+</div>
+</div>
+<div style="display: flex;width: 100%;" *ngIf= "trans">
+    <div style="padding-top: 1%;padding-left: 5%;">
+    <p style="color: green;font-size: 22px;">you as a transformer</p>
+    <table align="center">
+        <tr>
+                <th>Customer&nbsp;Id</th>
+                <th>item</th>
+                <th>Pickup&nbsp;Address</th>
+                <th >Delivery&nbsp;Address</th>
+                <th >Delivery&nbsp;Duration</th>
+                <th >Weight</th>
+                <th >Length</th>
+                <th >Height</th>
+                <th >Width</th>
+                <th >Price</th>
+                <th >Remove</th>
+        </tr>
+        <tr *ngFor="let i of result.result">
+                <td *ngIf = "i.Transformer_id==email">{{i.Customer_id}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.item}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Pickup_Address}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Delivery_Address}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Delivery_Duration}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Weight}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Length}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Height}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Width}}</td>
+                <td *ngIf = "i.Transformer_id==email">{{i.Price}}</td>
+                <td *ngIf = "i.Transformer_id==email"><button class="button" (click)="Removetrans(i)">Remove</button></td>
+<!--             <td>{{i.Parcel_id}}</td> -->
+<!--             <td><button class="button2" (click)="confirm(i)">yes</button></td> -->
+        </tr>
+    </table>
+</div>
+</div>
+</div>

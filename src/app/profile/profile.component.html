@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+<div style="width: 75%;display: flex; padding-top: 2%;margin-left: auto;margin-right: auto;">
+    <div style="width: 23.5%; display: inline-block;">
+      <div>
+        <table class="table1" style="width: 100%;">
+          <tr style="display: inline;">
+            <td><img src="../../assets/profile.svg" style="margin-left: 28%;margin-top: 28%;" /></td>
+            <td style="padding-left: 8%;display: inline-block;">Hello,</td>
+            <td class = "per1" style="padding-top: 2%;padding-bottom: 8%;display: inline-block;"><b>Chirag Katrodiya</b></td>
+          </tr>
+        </table>
+      </div>
+    <div style="padding-top: 5%;">
+      <table class="table1" style="width: 100%;">
+        <tr style="padding-bottom: 15%;">
+          <td class = "per">
+                  <span class="glyphicon glyphicon-user" style="zoom:1.5;color: rgb(0,130,250);"></span>
+          <b style="color: rgb(150,150,150);font-weight: 400;margin-left: 4%;">ACCOUNT SETTINGS</b></td>
+        </tr>
+        <tr>
+          <td class="Account" id="Personal" (click)="onProfile()">Profile Information</td>
+        </tr>
+        <tr style="border-bottom: 2px solid rgb(233,233,233);">
+          <td class="Account" id="Address" (click)="onAddress()">Manage Address</td><hr>
+        </tr>
+        <tr>
+          <td class="Logout">
+                  <span class="glyphicon glyphicon-log-out" style="color:rgb(0,130,250);"></span>
+                <a class="Logout" style="padding-left: 7%;">Logout</a>
+              </td>
+        </tr>
+      </table>
+  </div>
+  </div>
+  <div style="width: 75%;padding-left: 1%;padding-bottom:4%;">
+    <div *ngIf="Profile">
+        <form (ngSubmit)="profilename(profileForm.value)" #profileForm = "ngForm">
+        <table class="table1" style="width: 100%;">
+        <tr>
+          <td class = "per"><b>Personal Information  </b><a *ngIf="cancel1" (click)="onCancel1()"  style="font-size: 100%;color: blue;text-decoration: none;">Cancel</a></td>
+        </tr>
+        <tr>
+          <td class="pername" style="padding-left: 3.8%;"><input type="text" name="Firstname" style="padding-left: 2.3%;width:28% ;" value={{result.result[0].fname}} [readonly]="edit1"/>
+          <input type="text" name="Lastname" style="padding-left: 2.3%;margin-left: .9%;" value={{result.result[0].lname}} [readonly]="edit1"/><div *ngIf="save1" (click)="onSave1()" class="save" style="display: inline-block;margin-left: 5%;">Save</div></td>
+        </tr>
+        </table>
+        </form>
+        <!-- <tr>
+          <td style="padding-left: 3.8%;padding-top: 5%;font-size: 130%;">Your Gender</td>
+        </tr>
+        <tr>
+          <td class="pername" style="padding-left: 3.8%;"><input class="div1" type="radio" name="Gender" style="zoom:1.2;padding-left: 2.3%;" value="Male" checked [disabled] ="edit1"/> Male
+          <input  type="radio" name="Gender" style="padding-left: .9%;zoom:1.2;margin-left: .9%;" value="Female" [disabled] = "edit1"> Female</td>
+        </tr> -->
+        <form (ngSubmit)="profileemail(profileForm.value)" #profileForm = "ngForm">
+            <table class="table1" style="width: 100%;">
+        <tr>
+          <td class = "per" style="padding-top: 7%;"><b>Email Address </b> <a *ngIf="cancel2" (click)="onCancel2()" style="font-size: 110%;color: blue;text-decoration: none;"> Cancel </a></td>
+        </tr>
+        <tr>
+          <td class="pername" style="padding-left: 3.8%;padding-top: 3%;"><input type="text" name="email" style="padding-left: 2.3%;" value={{result.result[0].email}} size="32" [readonly]="edit2"/><div *ngIf="save2" (click)="onSave2()" class="save" style="display: inline-block;margin-left: 5%;">Save</div></td>
+        </tr>
+            </table>
+            </form>
+      <form (ngSubmit)="profilemobile(profileForm.value)" #profileForm = "ngForm">
+        <table class="table1" style="width: 100%;">
+        <tr>
+          <td class = "per" style="padding-top: 7%;"><b>Mobile Number </b><a *ngIf="cancel3" (click)="onCancel3()" style="font-size: 110%;color: blue;text-decoration: none;">Cancel</a></td>
+        </tr>
+        <tr>
+          <td class="pername" style="padding-left: 3.8%;padding-top: 2.7%;"><input type="Mobile" name="Mobile" style="padding-left: 2.3%;" value={{result.result[0].mobile}} size="15" [readonly]="edit3"/><div class="save" *ngIf="save3" (click)="onSave3()" style="display: inline-block;margin-left: 5%;" >Save</div></td>
+        </tr>
+        </table>
+       </form>
+        <table class="table1" style="width: 100%;">
+        <tr>
+          <td class = "per" data-toggle="tooltip" data-placement="bottom" title="Delete Your Account permanent" style="padding-bottom: 6%;padding-top: 6%;"><a style="font-size: 120%;text-decoration: none;">Deactivate Account</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="Address" *ngIf="Add">
+      <table align="center" class="table1" style="width: 100%;">
+        <tr>
+          <td class = "per"><b>Manage Address </b><a *ngIf="edit4" (click)="onEdit4()"  style="font-size: 110%;text-decoration: none;color: blue;"> Edit</a><a *ngIf="cancel4" (click)="onCancel4()" style="font-size: 110%;text-decoration: none;color: blue;">Cancel</a></td>
+        </tr>
+        <tr>
+          <td class="pername" style="padding-left: 3.2%;padding-bottom : 3.2%">
+          <textarea name="Address" style="padding-left: 2.3%;margin-left: .9%" rows="4" cols="50" [readonly]="edit4">Baps swaminarayan chhatralay, near vaniya vad circle, College Road, Nadiad, Gujarat - 387001</textarea><div class="save" *ngIf="save4" (click)="onSave4()" style="display: inline-block;margin-left: 5%;">Save</div></td>
+        </tr>
+      </table>
+    </div>
+    </div>

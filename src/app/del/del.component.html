@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div id="body1">
+    <form id="Del" (ngSubmit)="onSubmit(delForm.value)" #delForm = "ngForm">
+		<div class="cont">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Origin</label><br>
+                    <input type="text" id="Origin" name="Pickup_Address" placeholder="Pickup area City" ngModel/>
+                </div>
+                <div class="col-sm-6">
+                    <label>Destination</label><br>
+                    <input  type="text" id="Destination" name="Delivery_Address" placeholder="Delivery area City" (blur)="onBlur()" ngModel/>
+                </div>
+            </div>
+            <div class="row" id="row1" *ngIf="row1">
+                <div class="col-sm-6">
+                    <label>Weight(kg)</label><br>
+                    <input type="number" id="Weight" name="Weight" placeholder="Weight" ngModel/>
+                </div>
+                <div class="col-sm-6">
+                    <label>Length(cm)</label><br>
+                    <input  type="number" id="Length" name="Length" placeholder="Length" ngModel/>
+                </div>
+            </div>
+            <div class="row" id="row2" *ngIf="row2">
+                <div class="col-sm-6">
+                    <label>Height(cm)</label><br>
+                    <input type="number" id="Height" name="Height" placeholder="Height" ngModel/>
+                </div>
+                <div class="col-sm-6">
+                    <label>Width(cm)</label><br>
+                    <input  type="number" id="width" name="Width" placeholder="width" ngModel/>
+                </div>
+            </div>
+            <div class="row" id="row3" *ngIf="row3">
+                <div class="col-sm-6">
+                    <label>Price</label><br>
+                    <input type="number" id="Price" name="Price" placeholder="Price" ngModel/>
+                </div>
+                <div class="col-sm-6">
+                    <label>Delivery Duration</label><br>
+                    <input  type="number" id="Delivery_Duration" name="Delivery_Duration" placeholder="Delivery Duration" ngModel/>
+                </div>
+            </div>
+	    </div>
+	    <div class="button1"><input type="submit" value="SET QUOTES" class="button"/></div>
+    </form>
+</div>

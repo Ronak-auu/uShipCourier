@@ -1,0 +1,141 @@
+<app-navbar></app-navbar>
+<div class="login">
+	<form id="formData1" #trData="ngForm" (ngSubmit)="registerTrasformer(trData.value)">
+		<table align="center" class="table1">
+		<tr>
+			<th>Join Couriez<hr></th>
+		</tr>
+		<tr>
+			<th style="font-size: 30px;margin-top: -40px;">I am a ...</th>
+		</tr>
+		<tr class="tr1">
+			<td id="Customer1" class="td1 td2"  style="float : left;margin-left:3%;border: 1px solid gray;border-radius: 5px;"><a style="margin-left: 50px;margin-right: 50px;" (click)="onCustomer()">Customer</a></td>
+			<td id="Transformer1" class="td1 td2" style="float : right;margin-right:3%;border: 1px solid gray;border-radius: 5px;"><a style="margin-left: 35px;margin-right: 35px;" (click)="onTransformer()">Transformer</a></td>
+		</tr>
+		<div id="Transformer" *ngIf="trans">
+			<tr class="transformer" style="width: 100%;">
+				<td class="td3">First Name</td>
+				<td class="td3">Last Name</td>
+			</tr>
+			<tr class="transformer">
+				<div class="d-flex">
+				<td class="td4" style="padding-left: 18px;"><input type="text" name="fname" size="31" ngModel/></td>
+				<!-- <div *ngIf="rForm1.fname.errors">
+					<div *ngIf="rForm1.fname.errors.required">Firstname required</div>
+				</div> -->
+				<td class="td4" style="padding-left: 12px;"><input type="text" name="lname" size="31" ngModel/></td>
+			</div>
+			</tr>
+			<tr class="transformer">
+				<td class="td3" style="padding-left: 18px;margin-top: 10px;">Email Address</td>
+			</tr>
+			<tr class="transformer">
+				<td class="td4" style="padding-left: 18px;"><input type="email" name="email" size="67" ngModel/></td>
+				<!-- <div *ngIf="rForm1.email.errors">
+					<div *ngIf="rForm1.email.errors.required">email required</div>
+					<div *ngIf="rForm1.email.errors.email">Enter proper email</div>
+				</div> -->
+			</tr>
+			<tr class="transformer">
+				<td class="td3" style="padding-left: 18px;font-size: 16px;margin-top: 8px;"><b>Use your real email address.</b> We don't spam.</td>
+			</tr>
+			<tr class="transformer">
+				<td class="td3 landline" style="padding-left: 18px;margin-top: 10px;">Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td id="mobile1"class="td3" style="padding-left: 18px;margin-top: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile Phone</td>
+			</tr>
+			<tr id="input_container" style="display: inline;">
+				<div class="d-flex">
+				<td class="td4 transformer" style="padding-left: 10px;"><a class="landline" style="padding-left: 10px;"><input type="password" name="password" size="29"  ngModel/></a></td>
+				<td id="mobile2" class="td4 transformer" style="padding-left: 23px;"><input type="mobile" name="mobile" size="31" ngModel/><!-- <a class="mobile" style="display: inline;"><img id="mobile" src="../../assets/phone.png" width="32px" height="30px" style="right:33px;" class="input_img"></a><a class="mobile"><img id="landline" src="../../assets/landline.jpg" width="32px" height="30px" style="right:3px;" class="input_img"></a> --></td>
+				<!-- <div *ngIf="rForm1.mobile.errors">
+					<div *ngIf="rForm1.mobile.errors.required">mobile required</div>
+					<div *ngIf="rForm1.mobile.errors.pattern">mobile No. 0-9</div>
+				</div> -->
+			</div>
+			</tr>
+			<tr class="transformer">
+				<td class="td3" style="margin-top: 10px;margin-left:14px;font-size: 14px;">
+					<input type="checkbox" name="agree"/>I agree to the terms of uShip's User Agreement and Privacy Policy
+				</td>
+			</tr>
+			<tr class="transformer">
+				<td><input type="submit" value="Join uShip" class="button1"></td>
+			</tr>
+			<tr class="transformer">
+				<td style="padding-left:18px;padding-right:18px;padding-bottom: 32px;">By clicking Continue, you accept the terms and conditions of the uShip User Agreement and Privacy Policy. By entering an email address and clicking "Join uShip" you agree to be contacted by uShip for site notifications, transactional emails and select uShip promotions. We do not sell, rent or share your email and you may opt out of all emails at any time.</td>
+			</tr>
+		</div>
+	</table>
+	</form>
+	<form id="formData2" #cuData="ngForm" (ngSubmit)="registerCustomer(cuData.value)">
+		<table align="center" class="table1">
+		<div id="Customer" *ngIf="cus">
+			<tr class="customer">
+				<td class="td3" style="padding-left: 24px;">Account Type</td>
+			</tr>
+			<tr class="tr2 customer">
+				<td style="float: left;border:0px solid gray; padding-left: 23px;"></td>
+				<td id="Personal" class="td5 td6" style="float: left;border:1px solid gray;border-radius: 5px;" (click)="onPersonal()"><b>Personal</b></td>
+				<td id="Bussiness" class="td5 td6" style="float:left;border:1px solid gray;border-radius: 5px;" (click)="onBussiness()"><b>Bussiness</b></td>
+			</tr>
+			<tr class="customer">
+				<td class="td3" style="padding-left: 23px;">First Name</td>
+				<td class="td3" style="padding-left: 18px;">Last Name</td>
+			</tr>
+			<tr class="customer">
+				<td class="td4" style="padding-left: 4%;width: 48%;"><input type="text" name="fname" ngModel/></td>
+					<!-- <div *ngIf="rForm2.fname.errors">
+						<div *ngIf="rForm2.fname.errors.required">Firstname required</div>
+					</div> -->
+				<td class="td4" style="padding-left: 2%;width: 45%;"><input type="text" name="lname" ngModel/></td>
+					<!-- <div *ngIf="rForm2.lname.errors">
+						<div *ngIf="rForm2.lname.errors.required">Lastname required</div>
+					</div> -->
+			</tr>
+			<tr class="customer" *ngIf="buss">
+				<td class="td3" style="padding-left: 23px;margin-top: 10px;">Company Name</td>
+			</tr>
+			<tr class="customer" *ngIf="buss">
+				<td class="td4" style="padding-left: 23px;width: 93%;"><input type="text" name="cname" ngModel/></td>
+			</tr>
+			<tr class="customer">
+				<td class="td3" style="padding-left: 23px;margin-top: 10px;">Mobile</td>
+			</tr>
+			<tr class="customer">
+				<td class="td4" style="padding-left: 23px;"><input type="number" name="mobile"  ngModel/></td>
+				<!-- <div *ngIf="rForm1.email.errors">
+					<div *ngIf="rForm1.email.errors.required">email required</div>
+					<div *ngIf="rForm1.email.errors.email">Enter proper email</div>
+				</div> -->
+			</tr>
+			<tr class="customer">
+				<td class="td3" style="padding-left: 23px;margin-top: 10px;">Email Address</td>
+				<td class="td3" style="padding-left: 12px;margin-top: 10px;">Create a Password</td>
+			</tr>
+			<tr class="customer">
+				<div class="d-flex" >
+				<td class="td4" style="padding-left: 23px;"><input type="text" name="email" size="31" style="width: 95%;" ngModel required/></td>
+				<!-- <div *ngIf="rForm2.email.errors">
+					<div *ngIf="rForm2.email.errors.required">email required</div>
+					<div *ngIf="rForm2.email.errors.email">Enter proper email</div>
+				</div> -->
+				<div class="td4" style="padding-left: 5px;"><input type="password" name="password" size="31" ngModel/></div>
+			</div>
+			</tr>
+			<tr class="customer">
+				<td class="td3" style="padding-left: 23px;font-size: 16px;margin-top: 8px;"><b>Use your real email address.</b> We don't spam.</td>
+				
+			</tr>
+			<tr class="customer">
+				<td class="td3" style="margin-top: 10px;width: 100%;font-size: 14px;"><input type="checkbox" name="agree" required/>I agree to the terms of uShip's User Agreement and Privacy Policy</td>
+			</tr>
+			<tr class="customer">
+				<td><input type="submit" value="Join uShip" class="button1"></td>
+			</tr>
+			<tr class="customer">
+				<td style="padding-left:23px;padding-right:18px;padding-bottom: 32px;">By clicking Continue, you accept the terms and conditions of the uShip User Agreement and Privacy Policy. By entering an email address and clicking "Join uShip" you agree to be contacted by uShip for site notifications, transactional emails and select uShip promotions. We do not sell, rent or share your email and you may opt out of all emails at any time.</td>
+			</tr>
+		</div>
+	</table>
+	</form>
+</div>

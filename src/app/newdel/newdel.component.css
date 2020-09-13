@@ -1,0 +1,39 @@
+.container1{
+    background-color: rgba(244,244,244,1);
+    display: flex;
+    
+}
+.container2
+{
+    background-color: rgba(244,244,244,1);
+    display: flex;
+                
+}
+.item{
+
+    width: 25vw;
+    max-height: 25vw;
+    display: block;
+    margin: auto;
+} 
+.item:hover{
+    background-color: white; 
+    color: rgb(2,170,243);
+}
+.text{
+    text-align: center;
+    letter-spacing: 0.1vw;
+    margin-bottom: 2vw;
+}
+img
+{
+    width: 20vw;
+    overflow: hidden;
+    height: 20vw;
+    display: block;
+    margin: auto;
+
+}
+#body1{
+    max-width: 100vw;
+}
